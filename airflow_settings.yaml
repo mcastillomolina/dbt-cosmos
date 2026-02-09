@@ -1,0 +1,13 @@
+airflow:
+  connections:
+    - conn_id: snowflake_default
+      conn_type: snowflake
+      conn_host: ${SNOWFLAKE_ACCOUNT}
+      conn_schema: ${SNOWFLAKE_SCHEMA}
+      conn_login: ${SNOWFLAKE_USER}
+      conn_password: ${SNOWFLAKE_PASSWORD}
+      conn_extra:
+        account: ${SNOWFLAKE_ACCOUNT}
+        warehouse: ${SNOWFLAKE_WAREHOUSE}
+        database: ${SNOWFLAKE_DATABASE}
+        role: ${SNOWFLAKE_ROLE}

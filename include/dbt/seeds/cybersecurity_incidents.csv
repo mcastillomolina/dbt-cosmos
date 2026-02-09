@@ -1,0 +1,21 @@
+incident_id,incident_date,incident_type,severity,affected_systems,source_ip,destination_ip,attack_vector,impact_score,resolved,resolution_time_hours,detected_by,region,industry
+INC001,2024-01-15,Malware,High,Web Server,192.168.1.100,10.0.0.50,Email Phishing,8.5,TRUE,24,IDS,North America,Finance
+INC002,2024-01-16,DDoS,Critical,API Gateway,203.0.113.10,10.0.0.51,Botnet,9.2,TRUE,6,WAF,Europe,Technology
+INC003,2024-01-17,Data Breach,Critical,Database,198.51.100.25,10.0.0.52,SQL Injection,9.8,TRUE,48,SIEM,Asia,Healthcare
+INC004,2024-01-18,Unauthorized Access,Medium,File Server,192.0.2.30,10.0.0.53,Credential Stuffing,6.5,TRUE,12,User Report,North America,Retail
+INC005,2024-01-19,Ransomware,Critical,Workstation,203.0.113.45,10.0.0.54,Malicious Download,9.5,TRUE,72,EDR,Europe,Manufacturing
+INC006,2024-01-20,Phishing,Medium,Email Server,198.51.100.60,10.0.0.55,Spear Phishing,5.8,TRUE,8,Email Gateway,Asia,Education
+INC007,2024-01-21,Malware,High,Database,192.168.1.120,10.0.0.56,Drive-by Download,7.9,TRUE,16,Antivirus,North America,Finance
+INC008,2024-01-22,Insider Threat,High,CRM System,10.0.0.100,10.0.0.57,Privilege Abuse,8.2,FALSE,NULL,DLP,Europe,Technology
+INC009,2024-01-23,APT,Critical,Network Infrastructure,203.0.113.80,10.0.0.58,Zero-Day Exploit,9.9,FALSE,NULL,Threat Intel,Asia,Government
+INC010,2024-01-24,Brute Force,Low,Admin Portal,198.51.100.95,10.0.0.59,Password Attack,4.2,TRUE,2,Failed Login Monitor,North America,Healthcare
+INC011,2024-01-25,Data Exfiltration,High,File Server,192.0.2.110,10.0.0.60,Unauthorized Transfer,8.7,TRUE,36,DLP,Europe,Finance
+INC012,2024-01-26,Malware,Medium,Workstation,203.0.113.120,10.0.0.61,USB Drive,6.0,TRUE,10,EDR,Asia,Manufacturing
+INC013,2024-01-27,Web Attack,High,Web Application,198.51.100.130,10.0.0.62,XSS,7.5,TRUE,14,WAF,North America,Retail
+INC014,2024-01-28,DDoS,High,DNS Server,192.168.1.150,10.0.0.63,DNS Amplification,8.0,TRUE,4,Network Monitor,Europe,Technology
+INC015,2024-01-29,Phishing,Low,Email Server,203.0.113.160,10.0.0.64,Generic Phishing,3.5,TRUE,6,User Report,Asia,Education
+INC016,2024-01-30,Malware,Critical,Payment System,198.51.100.170,10.0.0.65,POS Malware,9.3,TRUE,48,Transaction Monitor,North America,Retail
+INC017,2024-02-01,Unauthorized Access,Medium,VPN Gateway,192.0.2.180,10.0.0.66,VPN Exploit,6.8,TRUE,18,VPN Logs,Europe,Healthcare
+INC018,2024-02-02,Ransomware,Critical,Database,203.0.113.190,10.0.0.67,Email Attachment,9.7,FALSE,NULL,Backup System,Asia,Finance
+INC019,2024-02-03,Data Breach,High,Customer DB,198.51.100.200,10.0.0.68,API Vulnerability,8.9,TRUE,60,Security Audit,North America,Technology
+INC020,2024-02-04,Malware,Medium,Email Server,192.168.1.210,10.0.0.69,Macro Virus,5.5,TRUE,8,Email Gateway,Europe,Manufacturing

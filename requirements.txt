@@ -1,0 +1,5 @@
+# Astronomer Cosmos for dbt orchestration
+astronomer-cosmos[dbt-snowflake]==1.9.0
+
+# Additional Airflow providers if needed
+apache-airflow-providers-snowflake>=5.0.0

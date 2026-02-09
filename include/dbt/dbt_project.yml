@@ -1,0 +1,46 @@
+name: 'cybersecurity_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'cybersecurity'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+  - "logs"
+
+models:
+  cybersecurity_analytics:
+    staging:
+      +materialized: view
+      +schema: staging
+    marts:
+      +materialized: table
+      +schema: analytics
+
+seeds:
+  cybersecurity_analytics:
+    +schema: raw
+    cybersecurity_incidents:
+      +column_types:
+        incident_id: varchar(50)
+        incident_date: date
+        incident_type: varchar(100)
+        severity: varchar(20)
+        affected_systems: varchar(200)
+        source_ip: varchar(50)
+        destination_ip: varchar(50)
+        attack_vector: varchar(100)
+        impact_score: float
+        resolved: boolean
+        resolution_time_hours: float
+        detected_by: varchar(100)
+        region: varchar(50)
+        industry: varchar(50)
