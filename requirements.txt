@@ -1,5 +1,4 @@
-# Astronomer Cosmos for dbt orchestration
-astronomer-cosmos[dbt-snowflake]==1.9.0
-
-# Additional Airflow providers if needed
-apache-airflow-providers-snowflake>=5.0.0
+# Astronomer Cosmos for dbt orchestration with Snowflake support
+# Cosmos 1.11+ supports Airflow 3.0
+# dbt packages are installed separately in Dockerfile to avoid dependency conflicts
+astronomer-cosmos==1.11.0

@@ -1,7 +1,10 @@
-FROM quay.io/astronomer/astro-runtime:12.7.1
+FROM apache/airflow:2.10.4-python3.12
 
-# Install dbt in a virtual environment to avoid dependency conflicts
-RUN python -m venv dbt_venv && \
-    . dbt_venv/bin/activate && \
-    pip install --no-cache-dir dbt-snowflake==1.9.0 && \
-    deactivate
+USER airflow
+
+
+RUN pip install --no-cache-dir 'dbt-core>=1.7.0,<1.8.0' 'dbt-snowflake>=1.7.0,<1.8.0'
+
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir astronomer-cosmos==1.9.0
