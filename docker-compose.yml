@@ -19,13 +19,12 @@ x-airflow-common:
     SNOWFLAKE_DATABASE: ${SNOWFLAKE_DATABASE}
     SNOWFLAKE_SCHEMA: ${SNOWFLAKE_SCHEMA:-PUBLIC}
     # dbt environment variables
-    DBT_PROFILES_DIR: /usr/local/airflow/include/dbt
+    DBT_PROFILES_DIR: /opt/airflow/include/dbt
   volumes:
-    - ./dags:/usr/local/airflow/dags
-    - ./include:/usr/local/airflow/include
-    - ./tests:/usr/local/airflow/tests
-    - ./plugins:/usr/local/airflow/plugins
-    - ./airflow_settings.yaml:/usr/local/airflow/airflow_settings.yaml
+    - ./dags:/opt/airflow/dags
+    - ./include:/opt/airflow/include
+    - ./tests:/opt/airflow/tests
+    - ./plugins:/opt/airflow/plugins
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     postgres:
@@ -46,17 +45,34 @@ services:
       retries: 5
     restart: always
 
+  airflow-init:
+    <<: *airflow-common
+    entrypoint: /bin/bash
+    command:
+      - -c
+    restart: "no"
+
   airflow-webserver:
     <<: *airflow-common
     command: webserver
     ports:
       - "8080:8080"
     restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
 
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler
     restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
 
 volumes:
   postgres-db-volume:
