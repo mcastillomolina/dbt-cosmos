@@ -1,29 +1,30 @@
 from datetime import datetime, timedelta
 from pathlib import Path
-import os
 
 from airflow import DAG
-from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
-from cosmos.profiles import SnowflakeUserPasswordProfileMapping
+from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig, TestBehavior
+from cosmos.profiles import PostgresUserPasswordProfileMapping
 
 # Path to dbt project
 DBT_PROJECT_PATH = Path("/opt/airflow/include/dbt")
 
-# Cosmos configuration
+# Profile configuration using Airflow connection
+# This works with any warehouse - just change the Airflow connection
 profile_config = ProfileConfig(
     profile_name="cybersecurity",
     target_name="dev",
-    profile_mapping=SnowflakeUserPasswordProfileMapping(
-        conn_id="snowflake_default",
+    profile_mapping=PostgresUserPasswordProfileMapping(
+        conn_id="dwh_default",  # Generic data warehouse connection
         profile_args={
-            "database": os.getenv("SNOWFLAKE_DATABASE", "CYBERSECURITY_DB"),
-            "schema": os.getenv("SNOWFLAKE_SCHEMA", "PUBLIC"),
+            "schema": "public",
         },
     ),
 )
 
 execution_config = ExecutionConfig(
     dbt_executable_path="/home/airflow/.local/bin/dbt",
+    # Show tests as task groups for better visibility
+    test_behavior=TestBehavior.AFTER_EACH,
 )
 
 # Create the Cosmos DAG
@@ -41,8 +42,8 @@ cybersecurity_dbt_dag = DbtDag(
     default_args={
         "owner": "airflow",
         "retries": 2,
-        "retry_delay": timedelta(minutes=0.15),
+        "retry_delay": timedelta(minutes=1),
     },
-    description="dbt models for cybersecurity incidents analytics",
-    tags=["dbt", "cosmos", "cybersecurity", "snowflake"],
+    description="dbt models for cybersecurity incidents analytics - warehouse agnostic",
+    tags=["dbt", "cosmos", "cybersecurity"],
 )
