@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: stg_cybersecurity_incidents
+    description: "Staging table for cybersecurity incidents with basic cleaning and transformations"
+    columns:
+      - name: incident_id
+        description: "Unique identifier for each incident"
+        tests:
+          - unique
+          - not_null
+
+      - name: incident_date
+        description: "Date when the incident occurred"
+        tests:
+          - not_null
+
+      - name: incident_type
+        description: "Type of security incident"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Malware', 'Phishing', 'DDoS', 'Ransomware', 'Data Breach',
+                       'Insider Threat', 'SQL Injection', 'Zero-Day Exploit']
+
+      - name: severity
+        description: "Severity level of the incident"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Low', 'Medium', 'High', 'Critical']
+
+      - name: impact_score
+        description: "Numerical impact score (1-10)"
+        tests:
+          - not_null
+
+      - name: resolved
+        description: "Whether the incident has been resolved"
+        tests:
+          - not_null

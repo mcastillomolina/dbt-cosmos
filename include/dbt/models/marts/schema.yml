@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: critical_incidents
+    description: "Filtered view of critical severity incidents"
+    columns:
+      - name: incident_id
+        description: "Unique identifier for each incident"
+        tests:
+          - unique
+          - not_null
+
+      - name: severity
+        description: "Severity level - should always be Critical"
+        tests:
+          - accepted_values:
+              values: ['Critical']
+
+  - name: incident_summary_by_type
+    description: "Summary statistics of incidents grouped by type"
+    columns:
+      - name: incident_type
+        description: "Type of security incident"
+        tests:
+          - unique
+          - not_null
+
+      - name: total_incidents
+        description: "Total number of incidents of this type"
+        tests:
+          - not_null
+
+  - name: regional_analysis
+    description: "Analysis of incidents by geographic region"
+    columns:
+      - name: region
+        description: "Geographic region"
+        tests:
+          - unique
+          - not_null
+
+      - name: total_incidents
+        description: "Total number of incidents in this region"
+        tests:
+          - not_null
