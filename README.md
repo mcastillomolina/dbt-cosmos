@@ -51,37 +51,46 @@ python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().d
 
 **Example for Snowflake:**
 ```bash
-AIRFLOW_FERNET_KEY=sH8hAE7X6f01LtwEPzcqtiA5vnJFBnj8IVtJBz5SEG4=
+AIRFLOW_FERNET_KEY=<paste-your-generated-fernet-key-here>
 DBT_TARGET_TYPE=snowflake
 AIRFLOW_CONN_DWH_DEFAULT=snowflake://USER:PASS@account/database/schema?warehouse=WH&role=ROLE
 ```
 
 **Example for BigQuery:**
 ```bash
-AIRFLOW_FERNET_KEY=sH8hAE7X6f01LtwEPzcqtiA5vnJFBnj8IVtJBz5SEG4=
+AIRFLOW_FERNET_KEY=<paste-your-generated-fernet-key-here>
 DBT_TARGET_TYPE=bigquery
 AIRFLOW_CONN_DWH_DEFAULT=google-cloud-platform://?extra__google_cloud_platform__project=my-project&extra__google_cloud_platform__key_path=/opt/airflow/keys/gcp-key.json
 ```
 
 **Example for Postgres:**
 ```bash
-AIRFLOW_FERNET_KEY=sH8hAE7X6f01LtwEPzcqtiA5vnJFBnj8IVtJBz5SEG4=
+AIRFLOW_FERNET_KEY=<paste-your-generated-fernet-key-here>
 DBT_TARGET_TYPE=postgres
 AIRFLOW_CONN_DWH_DEFAULT=postgres://username:password@hostname:5432/database
 ```
 
-### 3. Start the Services
+### 3. Build and Start the Services
 
 ```bash
-# Build and start all containers
+# Build the custom Airflow image with dbt
+docker-compose build
+
+# Start all containers
 docker-compose up -d
 
-# Check status
+# Check status (all services should be "running" or "exited" for airflow-init)
 docker-compose ps
 
-# View logs (optional)
+# View logs to monitor startup (optional)
 docker-compose logs -f
 ```
+
+**First-time startup** will take a few minutes to:
+1. Build the Airflow image with dbt installed
+2. Initialize the Airflow database
+3. Create the admin user
+4. Start the webserver and scheduler
 
 ### 4. Access Airflow
 
@@ -140,6 +149,7 @@ To use a different data warehouse:
 3. **Restart services**:
    ```bash
    docker-compose down
+   docker-compose build  # Rebuild if needed
    docker-compose up -d
    ```
 
@@ -186,6 +196,7 @@ dbt debug
 If you need to completely reset:
 ```bash
 docker-compose down -v  # Remove all volumes
+docker-compose build    # Rebuild images
 docker-compose up -d    # Recreate everything fresh
 ```
 
@@ -248,31 +259,3 @@ docker-compose down -v
 - Astronomer Cosmos 1.9.0
 - dbt Core 1.7.x
 - Docker & Docker Compose
-
-
-## Project Structure
-
-```
-dbt-cosmos/
-├── dags/
-│   └── cybersecurity_analytics_dag.py    # Airflow DAG definition
-├── include/
-│   └── dbt/
-│       ├── models/
-│       │   ├── staging/
-│       │   │   ├── stg_cybersecurity_incidents.sql
-│       │   │   └── schema.yml            # Tests for staging models
-│       │   └── marts/
-│       │       ├── critical_incidents.sql
-│       │       ├── incident_summary_by_type.sql
-│       │       ├── regional_analysis.sql
-│       │       └── schema.yml            # Tests for mart models
-│       ├── seeds/
-│       │   └── cybersecurity_incidents.csv
-│       └── dbt_project.yml
-├── Dockerfile                             # Custom Airflow image with dbt
-├── docker-compose.yml                     # Service orchestration
-├── requirements.txt                       # Python dependencies
-├── .env.example                           # Example environment config
-└── README.md                              # This file
-```
