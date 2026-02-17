@@ -31,15 +31,19 @@ models:
           - not_null
 
   - name: regional_analysis
-    description: "Analysis of incidents by geographic region"
+    description: "Analysis of incidents by geographic region and industry"
     columns:
       - name: region
         description: "Geographic region"
         tests:
-          - unique
+          - not_null
+
+      - name: industry
+        description: "Industry sector"
+        tests:
           - not_null
 
       - name: total_incidents
-        description: "Total number of incidents in this region"
+        description: "Total number of incidents in this region and industry"
         tests:
           - not_null

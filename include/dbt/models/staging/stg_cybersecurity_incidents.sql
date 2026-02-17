@@ -1,7 +1,7 @@
 {{
     config(
         materialized='view',
-        tags=['staging']
+        tags=['staging', 'weekly', 'cybersecurity']
     )
 }}
 

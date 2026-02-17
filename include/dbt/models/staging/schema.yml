@@ -21,7 +21,8 @@ models:
           - not_null
           - accepted_values:
               values: ['Malware', 'Phishing', 'DDoS', 'Ransomware', 'Data Breach',
-                       'Insider Threat', 'SQL Injection', 'Zero-Day Exploit']
+                       'Insider Threat', 'SQL Injection', 'Zero-Day Exploit',
+                       'Brute Force', 'Data Exfiltration', 'Unauthorized Access']
 
       - name: severity
         description: "Severity level of the incident"

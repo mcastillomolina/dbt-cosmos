@@ -1,0 +1,25 @@
+match_id,match_date,season,week,home_team,away_team,home_score,away_score,stadium,attendance,referee
+M001,2024-01-06,2023-24,20,Manchester City,Newcastle United,2,0,Etihad Stadium,52000,Michael Oliver
+M002,2024-01-06,2023-24,20,Arsenal,Liverpool,1,1,Emirates Stadium,60000,Anthony Taylor
+M003,2024-01-07,2023-24,20,Chelsea,Tottenham,3,1,Stamford Bridge,40000,Simon Hooper
+M004,2024-01-07,2023-24,20,Manchester United,Aston Villa,2,2,Old Trafford,74000,Paul Tierney
+M005,2024-01-13,2023-24,21,Liverpool,Manchester City,1,3,Anfield,53000,Michael Oliver
+M006,2024-01-13,2023-24,21,Newcastle United,Arsenal,2,1,St James' Park,52000,Chris Kavanagh
+M007,2024-01-14,2023-24,21,Tottenham,Manchester United,2,2,Tottenham Hotspur Stadium,61000,Anthony Taylor
+M008,2024-01-14,2023-24,21,Aston Villa,Chelsea,1,0,Villa Park,42000,Simon Hooper
+M009,2024-01-20,2023-24,22,Manchester City,Arsenal,3,1,Etihad Stadium,53000,Paul Tierney
+M010,2024-01-20,2023-24,22,Chelsea,Liverpool,2,2,Stamford Bridge,40000,Michael Oliver
+M011,2024-01-21,2023-24,22,Manchester United,Newcastle United,1,0,Old Trafford,74000,Anthony Taylor
+M012,2024-01-21,2023-24,22,Aston Villa,Tottenham,2,1,Villa Park,42000,Chris Kavanagh
+M013,2024-01-27,2023-24,23,Arsenal,Manchester United,2,0,Emirates Stadium,60000,Michael Oliver
+M014,2024-01-27,2023-24,23,Liverpool,Chelsea,4,1,Anfield,53000,Paul Tierney
+M015,2024-01-28,2023-24,23,Newcastle United,Manchester City,1,2,St James' Park,52000,Anthony Taylor
+M016,2024-01-28,2023-24,23,Tottenham,Aston Villa,3,2,Tottenham Hotspur Stadium,61000,Simon Hooper
+M017,2024-02-03,2023-24,24,Manchester City,Liverpool,2,1,Etihad Stadium,53000,Chris Kavanagh
+M018,2024-02-03,2023-24,24,Chelsea,Arsenal,0,0,Stamford Bridge,40000,Michael Oliver
+M019,2024-02-04,2023-24,24,Manchester United,Tottenham,3,1,Old Trafford,74000,Paul Tierney
+M020,2024-02-04,2023-24,24,Aston Villa,Newcastle United,2,1,Villa Park,42000,Anthony Taylor
+M021,2024-02-10,2023-24,25,Arsenal,Chelsea,2,1,Emirates Stadium,60000,Simon Hooper
+M022,2024-02-10,2023-24,25,Liverpool,Manchester United,3,0,Anfield,53000,Michael Oliver
+M023,2024-02-11,2023-24,25,Newcastle United,Aston Villa,2,2,St James' Park,52000,Chris Kavanagh
+M024,2024-02-11,2023-24,25,Tottenham,Manchester City,1,4,Tottenham Hotspur Stadium,61000,Paul Tierney

@@ -1,0 +1,61 @@
+player_stat_id,match_id,player_name,team,position,minutes_played,goals,assists,shots,shots_on_target,passes_completed,pass_accuracy,tackles,yellow_cards,red_cards
+PS001,M001,Erling Haaland,Manchester City,Forward,90,2,0,5,3,35,88.5,0,0,0
+PS002,M001,Kevin De Bruyne,Manchester City,Midfielder,90,0,2,3,2,78,92.1,1,0,0
+PS003,M001,Alexander Isak,Newcastle United,Forward,90,0,0,4,1,28,82.3,0,1,0
+PS004,M002,Bukayo Saka,Arsenal,Forward,85,1,0,6,3,42,86.4,2,0,0
+PS005,M002,Mohamed Salah,Liverpool,Forward,90,1,0,7,4,38,84.2,1,0,0
+PS006,M002,Virgil van Dijk,Liverpool,Defender,90,0,0,1,0,65,91.5,3,0,0
+PS007,M003,Cole Palmer,Chelsea,Midfielder,90,2,1,5,4,52,89.3,1,0,0
+PS008,M003,Son Heung-min,Tottenham,Forward,78,1,0,4,2,35,83.7,0,0,0
+PS009,M004,Bruno Fernandes,Manchester United,Midfielder,90,1,1,4,2,58,87.2,2,1,0
+PS010,M004,Ollie Watkins,Aston Villa,Forward,90,1,1,6,3,32,81.5,0,0,0
+PS011,M005,Erling Haaland,Manchester City,Forward,90,2,1,6,4,32,85.3,0,0,0
+PS012,M005,Darwin Nunez,Liverpool,Forward,90,1,0,5,2,28,76.8,1,0,0
+PS013,M006,Alexander Isak,Newcastle United,Forward,90,1,1,5,3,30,83.9,0,0,0
+PS014,M006,Martin Odegaard,Arsenal,Midfielder,90,0,0,4,2,72,90.8,1,1,0
+PS015,M007,Harry Kane,Tottenham,Forward,90,1,1,7,4,35,82.1,0,0,0
+PS016,M007,Bruno Fernandes,Manchester United,Midfielder,90,1,1,5,3,61,88.4,1,0,0
+PS017,M008,Ollie Watkins,Aston Villa,Forward,90,1,0,6,3,29,80.6,1,0,0
+PS018,M008,Cole Palmer,Chelsea,Midfielder,90,0,0,4,1,55,87.9,2,0,0
+PS019,M009,Erling Haaland,Manchester City,Forward,85,2,0,8,5,28,82.4,0,0,0
+PS020,M009,Phil Foden,Manchester City,Midfielder,90,1,2,4,3,68,91.2,0,0,0
+PS021,M009,Bukayo Saka,Arsenal,Forward,90,0,1,5,2,45,87.3,1,1,0
+PS022,M010,Cole Palmer,Chelsea,Midfielder,90,1,1,6,4,58,89.5,1,0,0
+PS023,M010,Mohamed Salah,Liverpool,Forward,90,2,0,7,5,40,85.7,0,0,0
+PS024,M011,Bruno Fernandes,Manchester United,Midfielder,90,1,0,3,2,64,90.1,2,0,0
+PS025,M011,Alexander Isak,Newcastle United,Forward,90,0,0,5,1,31,79.8,0,0,0
+PS026,M012,Ollie Watkins,Aston Villa,Forward,90,1,1,5,3,33,84.2,0,0,0
+PS027,M012,Son Heung-min,Tottenham,Forward,90,1,0,6,3,37,82.9,1,1,0
+PS028,M013,Bukayo Saka,Arsenal,Forward,90,1,1,5,3,46,88.1,0,0,0
+PS029,M013,Martin Odegaard,Arsenal,Midfielder,90,1,1,4,3,75,92.3,1,0,0
+PS030,M013,Bruno Fernandes,Manchester United,Midfielder,90,0,0,3,1,57,86.7,2,1,0
+PS031,M014,Mohamed Salah,Liverpool,Forward,90,2,2,8,6,42,87.2,0,0,0
+PS032,M014,Luis Diaz,Liverpool,Forward,85,2,0,5,4,34,81.9,1,0,0
+PS033,M014,Cole Palmer,Chelsea,Midfielder,90,1,0,4,2,51,88.3,0,1,0
+PS034,M015,Alexander Isak,Newcastle United,Forward,90,1,0,6,3,29,81.5,0,0,0
+PS035,M015,Erling Haaland,Manchester City,Forward,90,1,1,5,3,31,84.6,0,0,0
+PS036,M015,Kevin De Bruyne,Manchester City,Midfielder,90,1,1,3,2,82,93.8,0,0,0
+PS037,M016,Harry Kane,Tottenham,Forward,90,2,1,7,5,38,84.3,0,0,0
+PS038,M016,Ollie Watkins,Aston Villa,Forward,90,2,0,6,4,32,83.1,1,0,0
+PS039,M017,Erling Haaland,Manchester City,Forward,90,1,0,6,3,27,79.8,0,0,0
+PS040,M017,Phil Foden,Manchester City,Midfielder,90,1,1,5,3,71,90.5,1,0,0
+PS041,M017,Mohamed Salah,Liverpool,Forward,90,1,0,7,4,39,85.3,0,1,0
+PS042,M018,Bukayo Saka,Arsenal,Forward,90,0,0,4,2,48,89.6,2,0,0
+PS043,M018,Cole Palmer,Chelsea,Midfielder,90,0,0,5,3,62,91.4,1,0,0
+PS044,M019,Bruno Fernandes,Manchester United,Midfielder,90,2,1,5,4,59,88.9,1,0,0
+PS045,M019,Marcus Rashford,Manchester United,Forward,85,1,0,4,2,31,81.2,0,0,0
+PS046,M019,Son Heung-min,Tottenham,Forward,90,1,0,5,2,36,83.4,0,1,0
+PS047,M020,Ollie Watkins,Aston Villa,Forward,90,1,1,6,4,30,82.7,0,0,0
+PS048,M020,Alexander Isak,Newcastle United,Forward,90,1,0,5,3,28,80.1,1,0,0
+PS049,M021,Bukayo Saka,Arsenal,Forward,90,1,1,7,4,44,87.9,1,0,0
+PS050,M021,Martin Odegaard,Arsenal,Midfielder,90,1,1,3,2,78,93.1,0,0,0
+PS051,M021,Cole Palmer,Chelsea,Midfielder,90,1,0,6,3,56,89.7,2,1,0
+PS052,M022,Mohamed Salah,Liverpool,Forward,88,2,1,8,6,41,86.8,0,0,0
+PS053,M022,Cody Gakpo,Liverpool,Forward,90,1,0,4,3,35,83.5,1,0,0
+PS054,M022,Bruno Fernandes,Manchester United,Midfielder,90,0,0,2,0,52,85.4,1,1,0
+PS055,M023,Alexander Isak,Newcastle United,Forward,90,1,1,5,3,31,84.2,0,0,0
+PS056,M023,Ollie Watkins,Aston Villa,Forward,90,1,1,6,4,29,81.8,0,1,0
+PS057,M024,Harry Kane,Tottenham,Forward,90,1,0,5,2,33,82.6,0,0,0
+PS058,M024,Erling Haaland,Manchester City,Forward,90,3,0,9,7,30,83.9,0,0,0
+PS059,M024,Phil Foden,Manchester City,Midfielder,90,1,2,4,3,74,92.7,1,0,0
+PS060,M024,Kevin De Bruyne,Manchester City,Midfielder,85,0,2,3,2,79,94.2,0,0,0
