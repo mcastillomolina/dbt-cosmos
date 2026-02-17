@@ -2,29 +2,37 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 from airflow import DAG
-from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig, TestBehavior
-from cosmos.profiles import PostgresUserPasswordProfileMapping
+from cosmos import DbtDag, ProjectConfig, ProfileConfig, RenderConfig, LoadMode, TestBehavior
+from cosmos.profiles import SnowflakeUserPasswordProfileMapping
 
 # Path to dbt project
 DBT_PROJECT_PATH = Path("/opt/airflow/include/dbt")
 
-# Profile configuration using Airflow connection
-# This works with any warehouse - just change the Airflow connection
+# Profile configuration - Cosmos will mock this during DAG parsing
+# At runtime, it will use the actual Snowflake connection from profiles.yml
 profile_config = ProfileConfig(
     profile_name="cybersecurity",
     target_name="dev",
-    profile_mapping=PostgresUserPasswordProfileMapping(
-        conn_id="dwh_default",  # Generic data warehouse connection
-        profile_args={
-            "schema": "public",
-        },
-    ),
+    profiles_yml_filepath=DBT_PROJECT_PATH / "profiles.yml",
 )
 
-execution_config = ExecutionConfig(
-    dbt_executable_path="/home/airflow/.local/bin/dbt",
-    # Show tests as task groups for better visibility
-    test_behavior=TestBehavior.AFTER_EACH,
+# Render configuration for better DAG visualization and performance
+render_config = RenderConfig(
+    # Emit datasets for data-aware scheduling (Airflow 2.4+)
+    emit_datasets=True,
+
+    # Use DBT_LS with mock profile - Cosmos will mock credentials during parsing
+    # This allows DAG to parse without needing real warehouse credentials
+    load_method=LoadMode.DBT_LS,
+
+    # Enable mock profile (default=True) - mocks profile during dbt ls
+    # Set to False only if you want to use partial parsing with real credentials
+    enable_mock_profile=True,
+
+
+    # Select specific models/tags (optional - comment out to run all)
+    # select=["+critical_incidents"],  # Run critical_incidents and all upstream deps
+    # exclude=["tag:deprecated"],  # Exclude deprecated models
 )
 
 # Create the Cosmos DAG
@@ -33,7 +41,8 @@ cybersecurity_dbt_dag = DbtDag(
         dbt_project_path=DBT_PROJECT_PATH,
     ),
     profile_config=profile_config,
-    execution_config=execution_config,
+    # execution_config=execution_config,
+    render_config=render_config,
     # DAG configuration
     schedule_interval="@daily",
     start_date=datetime(2026, 1, 1),
@@ -44,6 +53,6 @@ cybersecurity_dbt_dag = DbtDag(
         "retries": 2,
         "retry_delay": timedelta(minutes=1),
     },
-    description="dbt models for cybersecurity incidents analytics - warehouse agnostic",
+    description="dbt models for cybersecurity incidents analytics - uses mocked profile for parsing",
     tags=["dbt", "cosmos", "cybersecurity"],
 )

@@ -1,5 +1,5 @@
-name: 'cybersecurity_analytics'
-version: '1.0.0'
+name: 'multi_dataset_analytics'
+version: '2.0.0'
 config-version: 2
 
 profile: 'cybersecurity'
@@ -16,19 +16,34 @@ clean-targets:
   - "dbt_packages"
   - "logs"
 
+# Model organization and configuration
 models:
-  cybersecurity_analytics:
+  multi_dataset_analytics:
+    # Staging layer - views for data cleaning and standardization
     staging:
       +materialized: view
       +schema: staging
+      # All staging models inherit these tags
+      +tags:
+        - staging
+
+    # Marts layer - tables for analytics
     marts:
       +materialized: table
       +schema: analytics
+      +tags:
+        - analytics
 
+# Seed configuration for multiple datasets
 seeds:
-  cybersecurity_analytics:
+  multi_dataset_analytics:
     +schema: raw
+
+    # Cybersecurity dataset
     cybersecurity_incidents:
+      +tags:
+        - cybersecurity
+        - weekly
       +column_types:
         incident_id: varchar(50)
         incident_date: date
@@ -44,3 +59,48 @@ seeds:
         detected_by: varchar(100)
         region: varchar(50)
         industry: varchar(50)
+
+    # Premier League datasets
+    premier_league_matches:
+      +tags:
+        - premier_league
+        - weekly
+      +column_types:
+        match_id: varchar(50)
+        match_date: date
+        season: varchar(20)
+        week: integer
+        home_team: varchar(100)
+        away_team: varchar(100)
+        home_score: integer
+        away_score: integer
+        stadium: varchar(200)
+        attendance: integer
+        referee: varchar(100)
+
+    premier_league_player_stats:
+      +tags:
+        - premier_league
+        - weekly
+      +column_types:
+        player_stat_id: varchar(50)
+        match_id: varchar(50)
+        player_name: varchar(100)
+        team: varchar(100)
+        position: varchar(50)
+        minutes_played: integer
+        goals: integer
+        assists: integer
+        shots: integer
+        shots_on_target: integer
+        passes_completed: integer
+        pass_accuracy: float
+        tackles: integer
+        yellow_cards: integer
+        red_cards: integer
+
+# Variables for environment-specific configuration
+vars:
+  # Can be overridden via --vars flag or environment variables
+  current_season: "2023-24"
+  analysis_week: 25  # Current week for incremental processing

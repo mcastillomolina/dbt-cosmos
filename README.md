@@ -1,6 +1,6 @@
 # dbt-Cosmos: Cybersecurity Analytics with Apache Airflow
 
-Orchestration of dbt transformations using Apache Airflow and Astronomer Cosmos. This project is **warehouse-agnostic** and works with Snowflake, BigQuery, Postgres, Redshift, and other data platforms.
+Orchestration of dbt transformations using Apache Airflow and Astronomer Cosmos with Snowflake as the data warehouse.
 
 ## TO DO:
 
@@ -18,14 +18,14 @@ Add incident notification on dag and dbt test failures. (incident.io or PagerDut
                                            ┌─────────────┐
                                            │    Data     │
                                            │  Warehouse  │
-                                           │ (Any Type)  │
+                                           │             │
                                            └─────────────┘
 ```
 
 ## Prerequisites
 
 - **Docker Desktop** (recommended) or Docker CLI
-- A data warehouse account (Snowflake, BigQuery, Postgres, etc.)
+- **Snowflake account** with database, warehouse, and appropriate permissions
 - 5 minutes to set up
 
 ## Quick Start
@@ -47,27 +47,18 @@ cp .env.example .env
 python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
 ```
 
-**Edit `.env` file** with your credentials:
+**Edit `.env` file** with your Snowflake credentials:
 
-**Example for Snowflake:**
 ```bash
-AIRFLOW_FERNET_KEY=<paste-your-generated-fernet-key-here>
-DBT_TARGET_TYPE=snowflake
-AIRFLOW_CONN_DWH_DEFAULT=snowflake://USER:PASS@account/database/schema?warehouse=WH&role=ROLE
-```
+export AIRFLOW_FERNET_KEY=<paste-your-generated-fernet-key-here>
 
-**Example for BigQuery:**
-```bash
-AIRFLOW_FERNET_KEY=<paste-your-generated-fernet-key-here>
-DBT_TARGET_TYPE=bigquery
-AIRFLOW_CONN_DWH_DEFAULT=google-cloud-platform://?extra__google_cloud_platform__project=my-project&extra__google_cloud_platform__key_path=/opt/airflow/keys/gcp-key.json
-```
-
-**Example for Postgres:**
-```bash
-AIRFLOW_FERNET_KEY=<paste-your-generated-fernet-key-here>
-DBT_TARGET_TYPE=postgres
-AIRFLOW_CONN_DWH_DEFAULT=postgres://username:password@hostname:5432/database
+export SNOWFLAKE_ACCOUNT=your-account
+export SNOWFLAKE_USER=your-username
+export SNOWFLAKE_PASSWORD=your-password
+export SNOWFLAKE_ROLE=ACCOUNTADMIN
+export SNOWFLAKE_WAREHOUSE=your-warehouse
+export SNOWFLAKE_DATABASE=CYBERSECURITY_DB
+export SNOWFLAKE_SCHEMA=PUBLIC
 ```
 
 ### 3. Build and Start the Services
@@ -107,31 +98,10 @@ When the DAG runs, you'll see **task groups** for each model:
 - **Model execution** (seed/run tasks)
 - **Test execution** (shown after each model completes)
 
-This provides clear visibility into which tests passed or failed!
+You will see your dbt models rendered as Airflow dags
+Models execute sequentially based on dependencies.
 
-## dbt Models
-
-### Data Pipeline Flow
-
-```
-cybersecurity_incidents.csv (seed)
-          ↓
-stg_cybersecurity_incidents (staging view)
-          ↓
-    ┌─────┴─────┬──────────────┐
-    ↓           ↓              ↓
-critical_   incident_    regional_
-incidents   summary      analysis
-(table)     (table)      (table)
-```
-
-### Staging Layer
-- **stg_cybersecurity_incidents**: Cleaned and standardized incident data with quality tests
-
-### Mart Layer
-- **critical_incidents**: Filtered view of critical severity incidents
-- **incident_summary_by_type**: Aggregated statistics by incident type
-- **regional_analysis**: Geographic distribution of incidents
+![alt text](image-1.png)
 
 ### dbt Tests Included
 All models include comprehensive data quality tests:
@@ -140,20 +110,21 @@ All models include comprehensive data quality tests:
 - ✅ Accepted values validation
 - ✅ Referential integrity
 
-## Switching Data Warehouses
+## Snowflake Setup
 
-To use a different data warehouse:
+Before running the DAG, create the necessary Snowflake resources:
 
-1. **Update `.env` file** with your new connection string
-2. **Update `DBT_TARGET_TYPE`** to match your warehouse
-3. **Restart services**:
-   ```bash
-   docker-compose down
-   docker-compose build  # Rebuild if needed
-   docker-compose up -d
-   ```
+```sql
+-- Create database and schema
+CREATE DATABASE CYBERSECURITY_DB;
+CREATE SCHEMA CYBERSECURITY_DB.PUBLIC;
 
-The DAG will automatically adapt to your warehouse - no code changes needed!
+-- Grant permissions
+GRANT USAGE ON DATABASE CYBERSECURITY_DB TO ROLE ACCOUNTADMIN;
+GRANT USAGE ON SCHEMA CYBERSECURITY_DB.PUBLIC TO ROLE ACCOUNTADMIN;
+GRANT CREATE TABLE ON SCHEMA CYBERSECURITY_DB.PUBLIC TO ROLE ACCOUNTADMIN;
+GRANT CREATE VIEW ON SCHEMA CYBERSECURITY_DB.PUBLIC TO ROLE ACCOUNTADMIN;
+```
 
 ## Troubleshooting
 
@@ -177,19 +148,16 @@ docker-compose exec airflow-scheduler airflow dags list
 docker-compose logs airflow-scheduler
 ```
 
-### Connection Errors
+### Snowflake Connection Errors
 
-**Verify your connection string:**
-```bash
-docker-compose exec airflow-webserver airflow connections get dwh_default
-```
-
-**Test connection manually:**
+**Test dbt connection manually:**
 ```bash
 docker-compose exec airflow-scheduler bash
 cd /opt/airflow/include/dbt
 dbt debug
 ```
+
+This will verify that all Snowflake environment variables are set correctly.
 
 ### Database Reset
 
@@ -220,6 +188,33 @@ cat logs/dag_id=cybersecurity_analytics_dbt/run_id=<run_id>/task_id=<task_id>/at
 
 Edit `dags/cybersecurity_analytics_dag.py` and the scheduler will automatically pick up changes.
 
+### Using RenderConfig for Advanced Control
+
+The DAG includes `RenderConfig` for advanced control over how dbt models are rendered in Airflow:
+
+**Select specific models to run:**
+```python
+render_config = RenderConfig(
+    select=["+critical_incidents"],  # Run critical_incidents and all upstream deps
+)
+```
+
+**Exclude models by tag:**
+```python
+render_config = RenderConfig(
+    exclude=["tag:deprecated"],  # Skip models tagged as deprecated
+)
+```
+
+**Run only changed models (for CI/CD):**
+```python
+render_config = RenderConfig(
+    select=["state:modified+"],  # Only run modified models and downstream
+)
+```
+
+See `dags/cybersecurity_analytics_dag.py:31-44` for more configuration options.
+
 ### Running dbt Commands Manually
 
 ```bash
@@ -236,14 +231,6 @@ dbt docs generate
 dbt docs serve
 ```
 
-## Dataset
-
-The PoC uses a sample cybersecurity incidents dataset with 20 records covering:
-- **Incident types**: Malware, DDoS, Ransomware, Phishing, Data Breach, etc.
-- **Severity levels**: Low, Medium, High, Critical
-- **Geographic regions**: North America, Europe, Asia, South America
-- **Industries**: Finance, Healthcare, Technology, Manufacturing, Retail
-
 ## Stopping the Environment
 
 ```bash
@@ -253,9 +240,3 @@ docker-compose down
 # Stop and remove volumes (WARNING: deletes all data)
 docker-compose down -v
 ```
-
-**Built with**:
-- Apache Airflow 2.10.4
-- Astronomer Cosmos 1.9.0
-- dbt Core 1.7.x
-- Docker & Docker Compose

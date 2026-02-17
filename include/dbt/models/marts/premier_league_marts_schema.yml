@@ -1,0 +1,72 @@
+version: 2
+
+models:
+  - name: weekly_team_performance
+    description: "Weekly team performance metrics and standings"
+    columns:
+      - name: week
+        description: "Week number"
+        tests:
+          - not_null
+
+      - name: team
+        description: "Team name"
+        tests:
+          - not_null
+
+      - name: points
+        description: "Points earned (3 for win, 1 for draw)"
+        tests:
+          - not_null
+
+      - name: goal_difference
+        description: "Goals scored minus goals conceded"
+        tests:
+          - not_null
+
+  - name: weekly_top_scorers
+    description: "Top goal scorers by week"
+    columns:
+      - name: week
+        description: "Week number"
+        tests:
+          - not_null
+
+      - name: player_name
+        description: "Player name"
+        tests:
+          - not_null
+
+      - name: team
+        description: "Team name"
+        tests:
+          - not_null
+
+      - name: goals
+        description: "Goals scored in the week"
+        tests:
+          - not_null
+
+  - name: weekly_player_form
+    description: "Player form and performance ratings by week"
+    columns:
+      - name: week
+        description: "Week number"
+        tests:
+          - not_null
+
+      - name: player_name
+        description: "Player name"
+        tests:
+          - not_null
+
+      - name: form_rating
+        description: "Form rating out of 10"
+        tests:
+          - not_null
+
+      - name: form_category
+        description: "Form category"
+        tests:
+          - accepted_values:
+              values: ['Excellent', 'Very Good', 'Good', 'Average', 'Below Average']

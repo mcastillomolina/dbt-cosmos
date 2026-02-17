@@ -1,7 +1,7 @@
 {{
     config(
         materialized='table',
-        tags=['analytics', 'critical']
+        tags=['analytics', 'weekly', 'cybersecurity', 'critical']
     )
 }}
 

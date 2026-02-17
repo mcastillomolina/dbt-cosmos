@@ -7,11 +7,11 @@ INC005,2024-01-19,Ransomware,Critical,Workstation,203.0.113.45,10.0.0.54,Malicio
 INC006,2024-01-20,Phishing,Medium,Email Server,198.51.100.60,10.0.0.55,Spear Phishing,5.8,TRUE,8,Email Gateway,Asia,Education
 INC007,2024-01-21,Malware,High,Database,192.168.1.120,10.0.0.56,Drive-by Download,7.9,TRUE,16,Antivirus,North America,Finance
 INC008,2024-01-22,Insider Threat,High,CRM System,10.0.0.100,10.0.0.57,Privilege Abuse,8.2,FALSE,NULL,DLP,Europe,Technology
-INC009,2024-01-23,APT,Critical,Network Infrastructure,203.0.113.80,10.0.0.58,Zero-Day Exploit,9.9,FALSE,NULL,Threat Intel,Asia,Government
+INC009,2024-01-23,Zero-Day Exploit,Critical,Network Infrastructure,203.0.113.80,10.0.0.58,Zero-Day Exploit,9.9,FALSE,NULL,Threat Intel,Asia,Government
 INC010,2024-01-24,Brute Force,Low,Admin Portal,198.51.100.95,10.0.0.59,Password Attack,4.2,TRUE,2,Failed Login Monitor,North America,Healthcare
 INC011,2024-01-25,Data Exfiltration,High,File Server,192.0.2.110,10.0.0.60,Unauthorized Transfer,8.7,TRUE,36,DLP,Europe,Finance
 INC012,2024-01-26,Malware,Medium,Workstation,203.0.113.120,10.0.0.61,USB Drive,6.0,TRUE,10,EDR,Asia,Manufacturing
-INC013,2024-01-27,Web Attack,High,Web Application,198.51.100.130,10.0.0.62,XSS,7.5,TRUE,14,WAF,North America,Retail
+INC013,2024-01-27,SQL Injection,High,Web Application,198.51.100.130,10.0.0.62,SQL Injection,7.5,TRUE,14,WAF,North America,Retail
 INC014,2024-01-28,DDoS,High,DNS Server,192.168.1.150,10.0.0.63,DNS Amplification,8.0,TRUE,4,Network Monitor,Europe,Technology
 INC015,2024-01-29,Phishing,Low,Email Server,203.0.113.160,10.0.0.64,Generic Phishing,3.5,TRUE,6,User Report,Asia,Education
 INC016,2024-01-30,Malware,Critical,Payment System,198.51.100.170,10.0.0.65,POS Malware,9.3,TRUE,48,Transaction Monitor,North America,Retail
@@ -19,3 +19,123 @@ INC017,2024-02-01,Unauthorized Access,Medium,VPN Gateway,192.0.2.180,10.0.0.66,V
 INC018,2024-02-02,Ransomware,Critical,Database,203.0.113.190,10.0.0.67,Email Attachment,9.7,FALSE,NULL,Backup System,Asia,Finance
 INC019,2024-02-03,Data Breach,High,Customer DB,198.51.100.200,10.0.0.68,API Vulnerability,8.9,TRUE,60,Security Audit,North America,Technology
 INC020,2024-02-04,Malware,Medium,Email Server,192.168.1.210,10.0.0.69,Macro Virus,5.5,TRUE,8,Email Gateway,Europe,Manufacturing
+INC021,2024-02-05,Phishing,High,Office 365,203.0.113.15,10.0.0.70,Credential Harvesting,7.8,TRUE,12,Email Gateway,North America,Finance
+INC022,2024-02-06,DDoS,Critical,Load Balancer,198.51.100.35,10.0.0.71,SYN Flood,9.1,TRUE,8,Network Monitor,Asia,E-commerce
+INC023,2024-02-07,Insider Threat,Medium,HR System,10.0.0.105,10.0.0.72,Data Theft,6.9,TRUE,24,DLP,Europe,Healthcare
+INC024,2024-02-08,Ransomware,Critical,File Server,192.0.2.45,10.0.0.73,RDP Exploit,9.6,TRUE,96,EDR,South America,Manufacturing
+INC025,2024-02-09,Malware,Low,Desktop,203.0.113.55,10.0.0.74,Adware,3.2,TRUE,4,Antivirus,North America,Retail
+INC026,2024-02-10,SQL Injection,High,E-commerce Site,198.51.100.75,10.0.0.75,Form Injection,8.3,TRUE,20,WAF,Europe,Retail
+INC027,2024-02-11,Data Breach,Critical,Payment Gateway,192.168.1.95,10.0.0.76,Memory Scraping,9.4,TRUE,72,Fraud Detection,Asia,Finance
+INC028,2024-02-12,Phishing,Medium,Corporate Email,203.0.113.105,10.0.0.77,Business Email Compromise,7.2,TRUE,16,User Report,North America,Technology
+INC029,2024-02-13,DDoS,High,Web Server,198.51.100.115,10.0.0.78,HTTP Flood,8.1,TRUE,6,CDN,Europe,Media
+INC030,2024-02-14,Malware,Critical,SCADA System,192.0.2.125,10.0.0.79,Industrial Malware,9.8,FALSE,NULL,ICS Monitor,Asia,Energy
+INC031,2024-02-15,Unauthorized Access,High,Cloud Storage,203.0.113.135,10.0.0.80,Misconfiguration,8.4,TRUE,28,Cloud Security,South America,Technology
+INC032,2024-02-16,Ransomware,Critical,Hospital Network,198.51.100.145,10.0.0.81,Phishing Email,9.9,TRUE,120,EDR,North America,Healthcare
+INC033,2024-02-17,Malware,Medium,Laptop,192.168.1.165,10.0.0.82,Trojan,6.3,TRUE,10,Antivirus,Europe,Education
+INC034,2024-02-18,Data Exfiltration,High,Research DB,203.0.113.175,10.0.0.83,FTP Transfer,8.6,TRUE,40,DLP,Asia,Pharmaceutical
+INC035,2024-02-19,Phishing,Low,Personal Email,198.51.100.185,10.0.0.84,Lottery Scam,2.8,TRUE,2,User Report,North America,Retail
+INC036,2024-02-20,DDoS,Critical,DNS Infrastructure,192.0.2.195,10.0.0.85,Reflection Attack,9.3,TRUE,10,ISP,Europe,Telecommunications
+INC037,2024-02-21,SQL Injection,High,Customer Portal,203.0.113.205,10.0.0.86,Union-based Injection,7.7,TRUE,18,Penetration Test,Asia,Insurance
+INC038,2024-02-22,Malware,High,Server Farm,198.51.100.215,10.0.0.87,Cryptominer,8.0,TRUE,32,Performance Monitor,South America,Hosting
+INC039,2024-02-23,Insider Threat,Critical,Intellectual Property,10.0.0.110,10.0.0.88,Unauthorized Download,9.2,FALSE,NULL,DLP,North America,Technology
+INC040,2024-02-24,Ransomware,High,Municipal Systems,192.168.1.225,10.0.0.89,Supply Chain Attack,8.8,TRUE,84,Security Team,Europe,Government
+INC041,2024-02-25,Phishing,Medium,Tax Department,203.0.113.25,10.0.0.90,Tax Scam,6.7,TRUE,14,Email Gateway,North America,Government
+INC042,2024-02-26,Data Breach,Critical,Credit Card DB,198.51.100.40,10.0.0.91,SQL Injection,9.7,TRUE,56,PCI Scanner,Asia,Finance
+INC043,2024-02-27,Malware,Medium,Mobile Device,192.0.2.50,10.0.0.92,Spyware,6.1,TRUE,12,MDM,Europe,Technology
+INC044,2024-02-28,DDoS,High,Gaming Server,203.0.113.65,10.0.0.93,UDP Flood,7.9,TRUE,5,Game Monitor,North America,Entertainment
+INC045,2024-02-29,Unauthorized Access,Medium,Admin Panel,198.51.100.80,10.0.0.94,Default Credentials,6.4,TRUE,8,Security Scan,South America,E-commerce
+INC046,2024-03-01,Ransomware,Critical,Backup Server,192.168.1.100,10.0.0.95,Worm Propagation,9.5,TRUE,108,Backup Alert,Asia,Healthcare
+INC047,2024-03-02,Malware,Low,Test Environment,203.0.113.110,10.0.0.96,Proof of Concept,3.8,TRUE,6,DevOps,Europe,Technology
+INC048,2024-03-03,SQL Injection,Critical,Banking Portal,198.51.100.125,10.0.0.97,Blind SQL Injection,9.1,TRUE,36,WAF,North America,Finance
+INC049,2024-03-04,Phishing,High,Executive Team,192.0.2.140,10.0.0.98,Whaling,8.5,TRUE,22,Security Awareness,Asia,Manufacturing
+INC050,2024-03-05,Data Exfiltration,Medium,File Share,203.0.113.150,10.0.0.99,Cloud Sync,6.6,TRUE,16,DLP,Europe,Legal
+INC051,2024-03-06,DDoS,Critical,E-commerce Platform,198.51.100.160,10.0.0.100,Layer 7 Attack,9.4,TRUE,12,CDN,North America,Retail
+INC052,2024-03-07,Malware,High,Point of Sale,192.168.1.180,10.0.0.101,Memory Scraper,8.2,TRUE,28,EDR,South America,Retail
+INC053,2024-03-08,Unauthorized Access,Low,Guest WiFi,203.0.113.190,10.0.0.102,Weak Password,4.5,TRUE,4,Network Access Control,Asia,Hospitality
+INC054,2024-03-09,Ransomware,Critical,School District,198.51.100.205,10.0.0.103,Phishing Campaign,9.3,TRUE,72,IT Staff,North America,Education
+INC055,2024-03-10,Phishing,Medium,Payroll System,192.0.2.220,10.0.0.104,W-2 Scam,7.1,TRUE,10,Finance Department,Europe,Manufacturing
+INC056,2024-03-11,Data Breach,High,Medical Records,203.0.113.10,10.0.0.105,Access Control Failure,8.7,TRUE,48,HIPAA Audit,Asia,Healthcare
+INC057,2024-03-12,Malware,Critical,Industrial Control,198.51.100.30,10.0.0.106,Stuxnet-like,9.6,FALSE,NULL,SCADA Monitor,Europe,Energy
+INC058,2024-03-13,DDoS,Medium,Blog Platform,192.168.1.50,10.0.0.107,Slowloris,6.8,TRUE,8,Hosting Provider,North America,Media
+INC059,2024-03-14,SQL Injection,High,Inventory System,203.0.113.70,10.0.0.108,Time-based Injection,7.6,TRUE,24,Code Review,South America,Logistics
+INC060,2024-03-15,Insider Threat,High,Source Code Repo,10.0.0.115,10.0.0.109,Code Exfiltration,8.3,TRUE,36,Git Audit,Asia,Technology
+INC061,2024-03-16,Ransomware,Critical,City Services,198.51.100.90,10.0.0.110,Triple Extortion,9.8,TRUE,144,Emergency Response,North America,Government
+INC062,2024-03-17,Phishing,Low,Newsletter Subscribers,192.0.2.100,10.0.0.111,Fake Survey,3.1,TRUE,4,Email Provider,Europe,Marketing
+INC063,2024-03-18,Malware,High,Virtual Desktop,203.0.113.120,10.0.0.112,Remote Access Trojan,8.1,TRUE,20,EDR,Asia,Finance
+INC064,2024-03-19,Data Breach,Critical,Voter Database,198.51.100.140,10.0.0.113,SQL Injection,9.5,TRUE,60,Election Security,North America,Government
+INC065,2024-03-20,DDoS,High,Streaming Service,192.168.1.170,10.0.0.114,Bandwidth Saturation,8.4,TRUE,7,CDN,Europe,Entertainment
+INC066,2024-03-21,Unauthorized Access,Medium,Container Registry,203.0.113.180,10.0.0.115,Token Theft,7.0,TRUE,12,DevSecOps,Asia,Technology
+INC067,2024-03-22,Malware,Medium,Print Server,198.51.100.195,10.0.0.116,Print Spooler Exploit,6.2,TRUE,14,Patch Management,South America,Education
+INC068,2024-03-23,Ransomware,Critical,Law Firm Network,192.0.2.210,10.0.0.117,Double Extortion,9.4,TRUE,96,Legal IT,North America,Legal
+INC069,2024-03-24,Phishing,High,Benefits Portal,203.0.113.220,10.0.0.118,Open Enrollment Scam,7.8,TRUE,16,HR Security,Europe,Insurance
+INC070,2024-03-25,SQL Injection,Critical,Online Banking,198.51.100.235,10.0.0.119,Error-based Injection,9.2,TRUE,44,Security Operations,Asia,Finance
+INC071,2024-03-26,Data Exfiltration,High,Product Designs,192.168.1.15,10.0.0.120,Email Forwarding,8.5,TRUE,32,DLP,North America,Manufacturing
+INC072,2024-03-27,Malware,Low,Marketing Laptop,203.0.113.30,10.0.0.121,Browser Hijacker,3.9,TRUE,6,Antivirus,Europe,Retail
+INC073,2024-03-28,DDoS,Critical,Payment Processor,198.51.100.50,10.0.0.122,Amplification Attack,9.3,TRUE,10,Financial Monitor,South America,Finance
+INC074,2024-03-29,Unauthorized Access,High,GitHub Repository,192.0.2.65,10.0.0.123,Compromised API Key,8.0,TRUE,18,Secret Scanning,Asia,Technology
+INC075,2024-03-30,Ransomware,Medium,Dental Practice,203.0.113.85,10.0.0.124,RDP Brute Force,7.3,TRUE,48,Managed IT,North America,Healthcare
+INC076,2024-03-31,Phishing,Medium,Shipping Notification,198.51.100.105,10.0.0.125,Package Delivery Scam,6.5,TRUE,8,Email Gateway,Europe,Logistics
+INC077,2024-04-01,Malware,Critical,ATM Network,192.168.1.125,10.0.0.126,ATM Jackpotting,9.7,TRUE,52,ATM Monitor,Asia,Finance
+INC078,2024-04-02,Data Breach,High,Employee Portal,203.0.113.140,10.0.0.127,Session Hijacking,8.1,TRUE,28,Security Audit,North America,Technology
+INC079,2024-04-03,SQL Injection,High,Reservation System,198.51.100.155,10.0.0.128,Stacked Queries,7.9,TRUE,22,Penetration Test,Europe,Hospitality
+INC080,2024-04-04,DDoS,Medium,Forum Platform,192.0.2.170,10.0.0.129,XML-RPC Attack,6.7,TRUE,6,WAF,South America,Community
+INC081,2024-04-05,Insider Threat,Critical,Trade Secrets,10.0.0.120,10.0.0.130,Competitor Espionage,9.6,FALSE,NULL,Investigation,Asia,Manufacturing
+INC082,2024-04-06,Ransomware,High,Veterinary Clinic,203.0.113.195,10.0.0.131,Phishing Email,8.3,TRUE,60,Backup Recovery,North America,Healthcare
+INC083,2024-04-07,Phishing,Low,Social Media Users,198.51.100.210,10.0.0.132,Fake Login Page,4.1,TRUE,5,User Report,Europe,Social Media
+INC084,2024-04-08,Malware,High,Kubernetes Cluster,192.168.1.230,10.0.0.133,Container Escape,8.4,TRUE,26,Runtime Security,Asia,Technology
+INC085,2024-04-09,Data Breach,Critical,Insurance Claims,203.0.113.245,10.0.0.134,API Exploitation,9.1,TRUE,64,Compliance Team,North America,Insurance
+INC086,2024-04-10,Unauthorized Access,Medium,Surveillance System,198.51.100.20,10.0.0.135,Default Password,6.9,TRUE,14,Physical Security,South America,Security
+INC087,2024-04-11,DDoS,Critical,Stock Exchange,192.0.2.35,10.0.0.136,Coordinated Attack,9.9,TRUE,15,Exchange Security,Europe,Finance
+INC088,2024-04-12,Malware,Medium,Conference Room,203.0.113.50,10.0.0.137,Smart TV Malware,5.7,TRUE,10,IT Support,North America,Corporate
+INC089,2024-04-13,Ransomware,Critical,University Research,198.51.100.70,10.0.0.138,Network Worm,9.4,TRUE,88,Research IT,Asia,Education
+INC090,2024-04-14,Phishing,High,Tax Season,192.168.1.90,10.0.0.139,IRS Impersonation,7.7,TRUE,12,Email Filter,North America,Finance
+INC091,2024-04-15,SQL Injection,Medium,Survey Platform,203.0.113.100,10.0.0.140,Second-order Injection,6.8,TRUE,16,Code Audit,Europe,Research
+INC092,2024-04-16,Data Exfiltration,High,M&A Documents,198.51.100.120,10.0.0.141,Print to PDF,8.2,TRUE,30,DLP,Asia,Finance
+INC093,2024-04-17,Malware,Low,Development VM,192.0.2.135,10.0.0.142,Test Malware,3.5,TRUE,4,Sandbox,South America,Technology
+INC094,2024-04-18,DDoS,High,Ticketing System,203.0.113.155,10.0.0.143,Ticket Bombing,7.8,TRUE,9,Rate Limiting,North America,Entertainment
+INC095,2024-04-19,Unauthorized Access,Critical,Nuclear Facility,198.51.100.175,10.0.0.144,Sophisticated APT,9.8,FALSE,NULL,National Security,Europe,Energy
+INC096,2024-04-20,Ransomware,Medium,Accounting Firm,192.168.1.195,10.0.0.145,Tax Software Exploit,7.2,TRUE,54,IT Consultant,North America,Accounting
+INC097,2024-04-21,Phishing,Medium,Cryptocurrency Users,203.0.113.200,10.0.0.146,Wallet Scam,7.4,TRUE,11,Exchange Security,Asia,Finance
+INC098,2024-04-22,Malware,Critical,Satellite Control,198.51.100.220,10.0.0.147,Nation-state Malware,9.5,FALSE,NULL,Aerospace Security,North America,Aerospace
+INC099,2024-04-23,Data Breach,High,Genetic Database,192.0.2.230,10.0.0.148,Research Misconduct,8.6,TRUE,42,Ethics Committee,Europe,Biotechnology
+INC100,2024-04-24,SQL Injection,High,Voting System,203.0.113.240,10.0.0.149,Boolean Injection,8.8,TRUE,38,Election Commission,South America,Government
+INC101,2024-04-25,DDoS,Medium,Charity Website,198.51.100.5,10.0.0.150,Hacktivism,6.4,TRUE,7,Cloudflare,North America,Non-profit
+INC102,2024-04-26,Insider Threat,High,Formula Database,10.0.0.125,10.0.0.151,Recipe Theft,8.1,TRUE,28,Legal Action,Asia,Food & Beverage
+INC103,2024-04-27,Ransomware,Critical,Pipeline Control,192.168.1.25,10.0.0.152,OT Ransomware,9.6,TRUE,72,SCADA Team,North America,Energy
+INC104,2024-04-28,Phishing,Low,Alumni Network,203.0.113.35,10.0.0.153,Donation Scam,3.7,TRUE,5,Alumni Office,Europe,Education
+INC105,2024-04-29,Malware,High,CI/CD Pipeline,198.51.100.55,10.0.0.154,Build Poisoning,8.3,TRUE,24,DevOps Security,Asia,Technology
+INC106,2024-04-30,Data Breach,Critical,Passport System,192.0.2.75,10.0.0.155,Database Leak,9.7,TRUE,68,Border Security,South America,Government
+INC107,2024-05-01,Unauthorized Access,Medium,Smart Building,203.0.113.95,10.0.0.156,IoT Exploitation,6.6,TRUE,15,Facilities,North America,Real Estate
+INC108,2024-05-02,DDoS,Critical,Cryptocurrency Exchange,198.51.100.115,10.0.0.157,Market Manipulation,9.2,TRUE,11,Trading Halt,Europe,Finance
+INC109,2024-05-03,Malware,Medium,Fleet Management,192.168.1.135,10.0.0.158,GPS Tracker Malware,6.3,TRUE,18,Fleet Security,Asia,Transportation
+INC110,2024-05-04,Ransomware,High,News Organization,203.0.113.145,10.0.0.159,Publishing Disruption,8.4,TRUE,36,Editorial IT,North America,Media
+INC111,2024-05-05,Phishing,High,Supply Chain,198.51.100.165,10.0.0.160,Vendor Impersonation,7.9,TRUE,20,Procurement,South America,Manufacturing
+INC112,2024-05-06,SQL Injection,Critical,Healthcare Portal,192.0.2.185,10.0.0.161,Out-of-band Injection,9.3,TRUE,46,Security Team,Europe,Healthcare
+INC113,2024-05-07,Data Exfiltration,Medium,Marketing Data,203.0.113.205,10.0.0.162,Cloud Misconfiguration,6.7,TRUE,22,Cloud Security,Asia,Retail
+INC114,2024-05-08,Malware,Low,Conference Badge,198.51.100.225,10.0.0.163,RFID Malware,4.3,TRUE,8,Event Security,North America,Events
+INC115,2024-05-09,DDoS,High,Telehealth Platform,192.168.1.240,10.0.0.164,Patient Care Disruption,8.5,TRUE,13,Healthcare IT,Europe,Healthcare
+INC116,2024-05-10,Unauthorized Access,Critical,Defense Contractor,203.0.113.15,10.0.0.165,Nation-state Attack,9.9,FALSE,NULL,FBI,North America,Defense
+INC117,2024-05-11,Ransomware,Medium,Real Estate Agency,198.51.100.40,10.0.0.166,Listing Encryption,7.1,TRUE,44,IT Vendor,Asia,Real Estate
+INC118,2024-05-12,Phishing,Medium,Cloud Migration,192.0.2.60,10.0.0.167,IT Support Scam,6.8,TRUE,14,Help Desk,South America,Technology
+INC119,2024-05-13,Malware,Critical,Power Grid,203.0.113.80,10.0.0.168,Grid Malware,9.8,FALSE,NULL,DHS,North America,Utilities
+INC120,2024-05-14,Data Breach,High,Loyalty Program,198.51.100.100,10.0.0.169,Point Theft,8.2,TRUE,34,Fraud Team,Europe,Retail
+INC121,2024-05-15,SQL Injection,Medium,Job Board,192.168.1.120,10.0.0.170,Resume Upload Exploit,6.5,TRUE,12,Security Scan,Asia,Recruitment
+INC122,2024-05-16,DDoS,Critical,Government Portal,203.0.113.130,10.0.0.171,Protest Attack,9.1,TRUE,16,CISA,North America,Government
+INC123,2024-05-17,Insider Threat,Medium,Customer List,10.0.0.130,10.0.0.172,Sales Rep Theft,7.3,TRUE,26,HR Investigation,Europe,Sales
+INC124,2024-05-18,Ransomware,Critical,County Hospital,198.51.100.150,10.0.0.173,Patient Care Impact,9.7,TRUE,102,Emergency Response,South America,Healthcare
+INC125,2024-05-19,Phishing,Low,Remote Workers,192.0.2.165,10.0.0.174,VPN Credential Theft,4.6,TRUE,7,Security Awareness,Asia,Corporate
+INC126,2024-05-20,Malware,High,Blockchain Node,203.0.113.185,10.0.0.175,Consensus Attack,8.1,TRUE,29,Blockchain Security,North America,Cryptocurrency
+INC127,2024-05-21,Data Breach,Critical,DNA Testing Service,198.51.100.200,10.0.0.176,Privacy Violation,9.4,TRUE,58,Legal Counsel,Europe,Biotechnology
+INC128,2024-05-22,Unauthorized Access,Medium,Drone Control,192.168.1.220,10.0.0.177,Signal Hijacking,7.0,TRUE,16,FAA,North America,Aviation
+INC129,2024-05-23,DDoS,High,eSports Tournament,203.0.113.210,10.0.0.178,Game Disruption,7.6,TRUE,8,Tournament Security,Asia,Gaming
+INC130,2024-05-24,Malware,Medium,Smart Meter,198.51.100.230,10.0.0.179,Billing Fraud,6.4,TRUE,21,Utility Security,South America,Utilities
+INC131,2024-05-25,Ransomware,High,Art Gallery,192.0.2.245,10.0.0.180,Collection Encryption,8.0,TRUE,50,Cultural Heritage,Europe,Arts
+INC132,2024-05-26,Phishing,High,Merger Announcement,203.0.113.25,10.0.0.181,Insider Trading,8.7,TRUE,19,SEC Investigation,North America,Finance
+INC133,2024-05-27,SQL Injection,Critical,Prescription System,198.51.100.45,10.0.0.182,Pharmacy Breach,9.5,TRUE,40,DEA,Asia,Pharmacy
+INC134,2024-05-28,Data Exfiltration,High,Patent Applications,192.168.1.65,10.0.0.183,IP Theft,8.8,TRUE,35,Legal,Europe,Technology
+INC135,2024-05-29,Malware,Low,Smart Fridge,203.0.113.75,10.0.0.184,IoT Botnet,3.3,TRUE,6,Consumer Security,North America,Consumer Goods
+INC136,2024-05-30,DDoS,Critical,Election Results,198.51.100.95,10.0.0.185,Democracy Attack,9.6,TRUE,18,Homeland Security,South America,Government
+INC137,2024-05-31,Unauthorized Access,High,Telescope Network,192.0.2.105,10.0.0.186,Research Sabotage,8.3,TRUE,31,NASA,North America,Research
+INC138,2024-06-01,Ransomware,Medium,Podcast Studio,203.0.113.125,10.0.0.187,Content Encryption,7.2,TRUE,47,Media IT,Europe,Media
+INC139,2024-06-02,Phishing,Medium,Grant Applications,198.51.100.145,10.0.0.188,Funding Scam,6.9,TRUE,13,Grant Office,Asia,Education
+INC140,2024-06-03,Malware,Critical,Traffic Control,192.168.1.175,10.0.0.189,Smart City Attack,9.2,FALSE,NULL,Transportation Authority,North America,Government

@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: stg_premier_league_matches
+    description: "Staging table for Premier League match results"
+    columns:
+      - name: match_id
+        description: "Unique identifier for each match"
+        tests:
+          - unique
+          - not_null
+
+      - name: match_date
+        description: "Date when the match was played"
+        tests:
+          - not_null
+
+      - name: week
+        description: "Week number of the season"
+        tests:
+          - not_null
+
+      - name: result_type
+        description: "Match result type"
+        tests:
+          - accepted_values:
+              values: ['Home Win', 'Away Win', 'Draw']
+
+  - name: stg_premier_league_player_stats
+    description: "Staging table for player statistics by match"
+    columns:
+      - name: player_stat_id
+        description: "Unique identifier for each player stat record"
+        tests:
+          - unique
+          - not_null
+
+      - name: match_id
+        description: "Match identifier"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('premier_league_matches')
+              field: match_id
+
+      - name: player_name
+        description: "Player name"
+        tests:
+          - not_null
+
+      - name: team
+        description: "Team name"
+        tests:
+          - not_null
+
+      - name: position
+        description: "Player position"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Forward', 'Midfielder', 'Defender', 'Goalkeeper']
+
+      - name: minutes_played
+        description: "Minutes played in the match"
+        tests:
+          - not_null
+
+      - name: goals
+        description: "Goals scored"
+        tests:
+          - not_null
+
+      - name: assists
+        description: "Assists provided"
+        tests:
+          - not_null
